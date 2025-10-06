@@ -11,7 +11,7 @@ import SwiftUI
 struct Income_UltraApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppStartingView()
         }
     }
 }
