@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		97C6AC282E9570D100B4CC6F /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 97C6AC272E9570D100B4CC6F /* Factory */; };
+		97C6AC2A2E9570D100B4CC6F /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 97C6AC292E9570D100B4CC6F /* FactoryKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9703BFD52E94854800187C30 /* Income-Ultra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Income-Ultra.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C6AC2A2E9570D100B4CC6F /* FactoryKit in Frameworks */,
+				97C6AC282E9570D100B4CC6F /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,8 @@
 			);
 			name = "Income-Ultra";
 			packageProductDependencies = (
+				97C6AC272E9570D100B4CC6F /* Factory */,
+				97C6AC292E9570D100B4CC6F /* FactoryKit */,
 			);
 			productName = "Income-Ultra";
 			productReference = 9703BFD52E94854800187C30 /* Income-Ultra.app */;
@@ -94,6 +103,9 @@
 			);
 			mainGroup = 9703BFCC2E94854800187C30;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				97C6AC262E9570D100B4CC6F /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9703BFD62E94854800187C30 /* Products */;
 			projectDirPath = "";
@@ -330,6 +342,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		97C6AC262E9570D100B4CC6F /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		97C6AC272E9570D100B4CC6F /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 97C6AC262E9570D100B4CC6F /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+		97C6AC292E9570D100B4CC6F /* FactoryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 97C6AC262E9570D100B4CC6F /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = FactoryKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9703BFCD2E94854800187C30 /* Project object */;
 }
