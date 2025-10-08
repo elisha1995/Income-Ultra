@@ -32,6 +32,9 @@ private extension IncomeView {
             .padding(.horizontal)
             .padding(.vertical, 8)
         }
+        .infinityFrame()
+        .background(Color.appTheme.viewBackground)
+        .animation(.easeIn, value: viewModel.incomePickerValue)
     }
     
     @ViewBuilder
@@ -46,18 +49,43 @@ private extension IncomeView {
         hourlyOutputView
     }
     
+    @ViewBuilder
     var salaryInputView: some View {
-        Text("")
+        InputView(
+            value: $viewModel.salaryInput.yearlyGross,
+            info: .init(name: "Yearly Gross ($)", placeholder: "$ 65,000", required: true)
+        )
+        InputView(
+            value: $viewModel.salaryInput.takeHomePercentage,
+            info: .init(name: "Take Home (%)", placeholder: "83.00 %", required: true)
+        )
     }
     
+    @ViewBuilder
     var salaryOutputView: some View {
         Text("")
     }
     
+    @ViewBuilder
     var hourlyInputView: some View {
-        Text("")
+        InputView(
+            value: $viewModel.hourlyInput.hourlyWage,
+            info: .init(name: "Hourly Wage ($)", placeholder: "$ 36.50", required: true)
+        )
+        InputView(
+            value: $viewModel.hourlyInput.hoursPerWeek,
+            info: .init(name: "Hours per Week", placeholder: "40", required: true)
+        )
+        InputView(
+            value: $viewModel.hourlyInput.takeHomePercentage,
+            info: .init(name: "Take Home (%)", placeholder: "83.00 %", required: true)
+        )
+        if viewModel.shouldShowOvertimeCheck {
+            SingleCheckInputView(name: "Overtime Rate", isChecked: $viewModel.hourlyInput.overtime)
+        }
     }
     
+    @ViewBuilder
     var hourlyOutputView: some View {
         Text("")
     }

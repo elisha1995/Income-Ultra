@@ -13,7 +13,7 @@ struct HourlyInput {
     var takeHomePercentage: Double?
     var overtime: Bool
     
-    init(hourlyWage: Double? = nil, hoursPerWeek: Double? = nil, takeHomePercentage: Double? = nil, overtime: Bool) {
+    init(hourlyWage: Double? = nil, hoursPerWeek: Double? = nil, takeHomePercentage: Double? = nil, overtime: Bool = false) {
         self.hourlyWage = hourlyWage
         self.hoursPerWeek = hoursPerWeek
         self.takeHomePercentage = takeHomePercentage
