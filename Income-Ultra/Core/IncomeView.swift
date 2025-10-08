@@ -14,6 +14,7 @@ struct IncomeView: View {
         incomeView
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {toolbarItems}
+            .hideKeyboardOnTap()
     }
 }
 
