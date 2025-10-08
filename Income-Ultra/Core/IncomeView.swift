@@ -63,7 +63,9 @@ private extension IncomeView {
     
     @ViewBuilder
     var salaryOutputView: some View {
-        Text("")
+        SingleOutputView(name: "Hourly Wage", output: viewModel.salaryOutput.hourlyWage)
+        PayOutputView(pay: viewModel.salaryOutput.takeHomePay)
+        PayOutputView(pay: viewModel.salaryOutput.grossPay)
     }
     
     @ViewBuilder
@@ -87,7 +89,8 @@ private extension IncomeView {
     
     @ViewBuilder
     var hourlyOutputView: some View {
-        Text("")
+        PayOutputView(pay: viewModel.hourlyOutput.takeHomePay)
+        PayOutputView(pay: viewModel.hourlyOutput.grossPay)
     }
     
     @ToolbarContentBuilder
