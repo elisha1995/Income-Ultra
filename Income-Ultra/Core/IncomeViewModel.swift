@@ -13,6 +13,7 @@ import Factory
 @MainActor
 final class IncomeViewModel: ObservableObject {
     @Published var incomePickerValue: IncomePickerView.IncomeType = .salary
+    
     @Published var salaryInput: SalaryInput = .init()
     @Published var salaryOutput: SalaryOutput = .init()
     
@@ -22,6 +23,31 @@ final class IncomeViewModel: ObservableObject {
     @Injected(\.incomeStore) private var incomeStore
     @Injected(\.appInfoStore) private var appInfoStore
     
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        setSubscribers()
+    }
+    
+    private func setSubscribers() {
+        $salaryInput
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] salaryInput in
+                guard let self else { return }
+                
+                salaryOutput = incomeStore.getSalaryOutput(for: salaryInput)
+            }
+            .store(in: &cancellables)
+        
+        $hourlyInput
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] hourlyInput in
+                guard let self else { return }
+                
+                hourlyOutput = incomeStore.getHourlyOutput(for: hourlyInput)
+            }
+            .store(in: &cancellables)
+    }
     var shouldShowOvertimeCheck: Bool {
         (hourlyInput.hoursPerWeek ?? 0) > hourlyInput.hoursPerWeekLimitForOvertime
     }
