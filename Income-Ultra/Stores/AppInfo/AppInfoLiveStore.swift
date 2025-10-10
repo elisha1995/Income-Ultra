@@ -21,7 +21,7 @@ struct AppInfoLiveStore {
         return "-"
     }
     
-    var compatibillity: String {
+    var compatibility: String {
         if let minVersion = Bundle.main.infoDictionary?["MinimumOSVersion"] as? String {
             return "iOS \(minVersion)+"
         }
